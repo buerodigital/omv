@@ -1,0 +1,15 @@
+version: '3.3'
+    
+services:
+  authelia:
+    image: authelia/authelia
+    container_name: authelia
+    volumes:
+      - config:/config 
+    ports:
+      - 9091:9091
+    environment:
+      - TZ=Europe/Berlin
+      
+volumes:
+  config:
