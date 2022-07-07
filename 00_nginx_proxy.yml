@@ -1,6 +1,6 @@
 version: '3'
 services:
-  npm:
+  nginx_proxy:
     image: 'jc21/nginx-proxy-manager:latest'
     container_name: nginx_proxy
     restart: unless-stopped
