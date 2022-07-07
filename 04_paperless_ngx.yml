@@ -18,3 +18,5 @@ services:
 volumes:
   config:
   data:
+
+# admin:admin
