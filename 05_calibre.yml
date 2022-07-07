@@ -18,3 +18,6 @@ services:
 volumes:
   data:
   library:
+
+
+#Username: admin Password: admin123
