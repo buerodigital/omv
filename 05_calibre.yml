@@ -12,7 +12,7 @@ services:
       - data:/config
       - library:/books
     ports:
-      - 10004:8083
+      - 10003:8083
     restart: unless-stopped
     
 volumes:
