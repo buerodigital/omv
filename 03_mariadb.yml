@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  db:
+    image: linuxserver/mariadb:amd64-alpine-version-10.5.12-r0
+    container_name: db
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=Chicago.999
+      - TZ=Europe/Berlin
+    volumes:
+      - config:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+
+  adminer:
+    image: adminer:4.8.1-standalone
+    container_name: adminer
+    depends_on:
+      - db
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+
+volumes:
+  config:
