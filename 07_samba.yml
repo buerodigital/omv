@@ -3,14 +3,20 @@ version: '3.4'
 services:
   samba:
     image: dperson/samba
-    container_name: samba
+    container_name: samba   
     environment:
       TZ: 'Europe/Berlin'
+      WORKGROUP: 'WORKGROUP'
+      USERID: '1000'
+      GROUPID: '1000'
+GROUPID
     ports:
       - "445:445/tcp"
+    tmpfs:
+      - /tmp
     restart: unless-stopped
+    stdin_open: true
+    tty: true
     volumes:
-      - /home/mark/samba/1:/mnt00:z
-      - /home/mark/samba/2:/mnt01:z
-      - /home/mark/samba/3:/mnt02:z
-    command: '-u "mark;caioe" -u "jasmin;caioe" -s "Marks Volume;/mnt00;yes;no;no;mark" -s "JAzzs Volume;/mnt01;yes;no;no;jasmin -s "Public;/mnt02;yes;no;no;mark,jasmin -p'
+      - /home/mark/samba:/mnt:z    
+    command: '-s "Mount;/mnt0 -s "Volume 1;/mnt/1;yes;no;no;mark" -s "Volume 2;/mnt/2;yes;no;no;mark" -s "Volume 3;/mnt/3;yes;no;no;mark,jasmin" -u "mark;pass" -u "jasmin;pass" -p'
