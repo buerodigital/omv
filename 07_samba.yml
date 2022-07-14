@@ -9,7 +9,6 @@ services:
       WORKGROUP: 'WORKGROUP'
       USERID: '1000'
       GROUPID: '1000'
-GROUPID
     ports:
       - "445:445/tcp"
     tmpfs:
